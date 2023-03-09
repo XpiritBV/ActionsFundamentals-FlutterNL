@@ -36,5 +36,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: job_1
     steps:
+      - run: exit 1
+      
+  job_3:
+    runs-on: ubuntu-latest
+    needs: [ job_1, job_2 ]
+    if: always()
+    steps:
       - run: echo "hello world"
+      
       
