@@ -27,3 +27,14 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
+      
+  job_2:
+    runs-on: ubuntu-latest
+    needs: job_1
+    steps:
+      - run: echo "hello world"
+      
