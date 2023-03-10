@@ -16,38 +16,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
-      
-      - uses: actions/cache@v3
+
+      - run: |
+          npm install http          
+          
+      - uses: actions/upload-artifact@v3
         with:
           path: node_modules
-          key: 1
-      
-      - run: |
-          npm install http
+          name: node_modules
   
   node-windows:
     runs-on: windows-latest
+    needs: node-linux
     steps:
       - uses: actions/setup-node@v3
       
-      - uses: actions/cache@v3
+      - uses: actions/download-artifact@v3
         with:
-          path: node_modules
-          key: 2
+          name: node_modules
       
       - run: |
           npm install http
     
   node-mac:
     runs-on: macos-latest
-    needs: node-windows
+    needs: node-linux
     steps:
       - uses: actions/setup-node@v3
       
-      - uses: actions/cache@v3
+      - uses: actions/download-artifact@v3
         with:
-          path: node_modules
-          key: 2
+          name: node_modules
       
       - run: |
           npm install http
