@@ -60,4 +60,21 @@ jobs:
           sleep 10
           echo "variable: ${{ vars.VARIABLE }}"
           echo "Environment: $GITHUB_ENVIRONMENT"
+          
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: 1
+      
+      - run: |
+          npm install http
+      
+    
+          
+          
       
