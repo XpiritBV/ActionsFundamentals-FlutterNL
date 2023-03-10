@@ -41,7 +41,7 @@ jobs:
     
   node-mac:
     runs-on: macos-latest
-    needs: node-linux
+    needs: [ node-linux, node-windows]
     steps:
       - uses: actions/setup-node@v3
       
