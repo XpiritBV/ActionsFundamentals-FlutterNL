@@ -34,6 +34,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: node_modules
+          path: node_modules
       
       - run: |
           npm install http
@@ -46,7 +47,8 @@ jobs:
       
       - uses: actions/download-artifact@v3
         with:
-          name: node_modules
+          name: node_modules        
+          path: node_modules
       
       - run: |
           npm install http
