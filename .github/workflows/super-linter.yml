@@ -33,20 +33,21 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: node_modules
-          key: 1
+          key: 2
       
       - run: |
           npm install http
     
   node-mac:
     runs-on: macos-latest
+    needs: node-windows
     steps:
       - uses: actions/setup-node@v3
       
       - uses: actions/cache@v3
         with:
           path: node_modules
-          key: 1
+          key: 2
       
       - run: |
           npm install http
